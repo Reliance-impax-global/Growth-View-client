@@ -1,5 +1,6 @@
 const Home = () => {
-  return <></>;
+  return <>
+  thjis is adin home</>;
 };
 
 export default Home;
