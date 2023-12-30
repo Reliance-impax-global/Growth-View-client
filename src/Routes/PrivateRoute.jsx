@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 // eslint-disable-next-line react/prop-types
 
-const PrivateRoute = (children) => {
+const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   if (loading) {
     return (

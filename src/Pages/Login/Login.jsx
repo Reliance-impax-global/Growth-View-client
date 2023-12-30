@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import img from "../../assets/loginimg.jpg";
 import logo from "../../assets/logo.svg";
 import LoginForm from "./LoginForm";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const BackgroundImage = () => (
   <div className="flex-auto w-[600px] relative text-center">
@@ -29,8 +31,16 @@ const Login = () => {
   const [isInput, setIsInput] = useState(false);
   const [userRole, setUserRole] = useState(null);
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => console.log(data.email);
+  const { signIn } = useContext(AuthContext);
+
+  const onSubmit = (data) => {
+    event.preventDefault();
+    signIn(data.email, data.password).then(() => {
+      navigate("/", { replace: true });
+    });
+  };
 
   return (
     <div className="flex mx-auto max-h-screen">

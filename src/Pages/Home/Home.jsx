@@ -1,6 +1,10 @@
+import ManagerNavbar from "../../Shared/ManagerNavbar";
+
 const Home = () => {
   return <>
-  thjis is adin home</>;
+  <ManagerNavbar></ManagerNavbar>
+  
+  </>;
 };
 
 export default Home;
