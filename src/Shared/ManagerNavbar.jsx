@@ -10,7 +10,7 @@ const ManagerNavbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="w-screen h-[250px] ">
+    <div className="w-screen h-[250px] relative">
       {/* navbar first section start */}
       <div className="flex justify-between items-center px-[40px]">
         <div className="flex  justify-center items-center">
@@ -61,41 +61,41 @@ const ManagerNavbar = () => {
             />
           )}
           {isOpen && (
-            <div className="flex flex-col items-start justify-start text-center rounded-lg">
+            <div className="absolute  left-1 w-[333px] bg-[#2d2e2e] rounded-lg overflow-hidden ">
               {" "}
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold font-['Inter']">
+                <div className="text-white text-[40px] font-semibold  ">
                   Dashboard
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold font-['Inter']">
+                <div className="text-white text-[40px] font-semibold  ">
                   Add Earning
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold font-['Inter']">
+                <div className="text-white text-[40px] font-semibold  ">
                   Add Expenses
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold font-['Inter']">
+                <div className="text-white text-[40px] font-semibold  ">
                   Earning Record
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold font-['Inter']">
+                <div className="text-white text-[40px] font-semibold">
                   Expense Record
                 </div>
               </div>
             </div>
           )}
         </div>
-        <div className="flex-1 text-blue-800 text-[40px] font-semibold font-['Inter']">
+        <div className="flex-1 text-blue-800 text-[40px] font-semibold mr-24">
           Dashboard
         </div>
-          </div>
-          {/* second section end */}
+      </div>
+      {/* second section end */}
       <div className="mx-auto w-[1782.01px] my-4 h-[0px] border border-blue-600"></div>
     </div>
   );
