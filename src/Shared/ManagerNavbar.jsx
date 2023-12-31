@@ -3,7 +3,8 @@ import logo from "../assets/logo.svg";
 import profileLogo from "../assets/profileLogo.svg";
 import dashOpen from "../assets/dashOpen.svg";
 import dashClose from "../assets/dashClose.svg";
-const ManagerNavbar = () => {
+import { Link } from "react-router-dom";
+const ManagerNavbar = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -43,7 +44,7 @@ const ManagerNavbar = () => {
       {/* first section end */}
 
       {/* second section start */}
-      <div className="mt-[50px] flex justify-between items-center">
+      <div className="mt-[20px] flex justify-between items-center">
         <div className="flex-1">
           {isOpen ? (
             <img
@@ -69,22 +70,22 @@ const ManagerNavbar = () => {
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold  ">
-                  Add Earning
+                <div className="text-white text-[40px] font-semibold  hover:cursor-pointer">
+                  <Link to={"/addearning"}>Add Earning</Link>
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold  ">
+                <div className="text-white text-[40px] font-semibold hover:cursor-pointer ">
                   Add Expenses
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold  ">
+                <div className="text-white text-[40px] font-semibold  hover:cursor-pointer">
                   Earning Record
                 </div>
               </div>
-              <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold">
+              <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex hover:cursor-pointer ">
+                <div className="text-white text-[40px] font-semibold hover:text-red-400">
                   Expense Record
                 </div>
               </div>
@@ -92,7 +93,7 @@ const ManagerNavbar = () => {
           )}
         </div>
         <div className="flex-1 text-blue-800 text-[40px] font-semibold mr-24">
-          Dashboard
+          {title}
         </div>
       </div>
       {/* second section end */}
