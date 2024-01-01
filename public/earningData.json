@@ -1,0 +1,74 @@
+[
+  {
+    "month": "January",
+    "carEarning": 40600,
+    "websiteEarning": 24060,
+    "officeEarning": 12060
+  },
+  {
+    "month": "February",
+    "carEarning": 30600,
+    "websiteEarning": 13698,
+    "officeEarning": 1968
+  },
+  {
+    "month": "March",
+    "carEarning": 20600,
+    "websiteEarning": 98600,
+    "officeEarning": 15060
+  },
+  {
+    "month": "April",
+    "carEarning": 27680,
+    "websiteEarning": 39068,
+    "officeEarning": 20660
+  },
+  {
+    "month": "May",
+    "carEarning": 18690,
+    "websiteEarning": 48060,
+    "officeEarning": 17600
+  },
+  {
+    "month": "June",
+    "carEarning": 23690,
+    "websiteEarning": 38600,
+    "officeEarning": 25600
+  },
+  {
+    "month": "July",
+    "carEarning": 36490,
+    "websiteEarning": 46300,
+    "officeEarning": 21060
+  },
+  {
+    "month": "August",
+    "carEarning": 44200,
+    "websiteEarning": 34200,
+    "officeEarning": 18040
+  },
+  {
+    "month": "September",
+    "carEarning": 31040,
+    "websiteEarning": 28400,
+    "officeEarning": 15500
+  },
+  {
+    "month": "October",
+    "carEarning": 28500,
+    "websiteEarning": 21500,
+    "officeEarning": 12500
+  },
+  {
+    "month": "November",
+    "carEarning": 33500,
+    "websiteEarning": 25500,
+    "officeEarning": 19500
+  },
+  {
+    "month": "December",
+    "carEarning": 39008,
+    "websiteEarning": 30076,
+    "officeEarning": 24007
+  }
+]
