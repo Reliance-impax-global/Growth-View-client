@@ -7,7 +7,7 @@ import img from "../../assets/chalender.svg";
 import img2 from "../../assets/gellary.svg";
 import img3 from "../../assets/close.svg";
 
-const ManagerAddEarning = () => {
+const ManagerAddExpense = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const datePickerRef = useRef(null);
 
@@ -24,16 +24,17 @@ const ManagerAddEarning = () => {
 
   return (
     <>
-      <ManagerNavbar title={"Add Earning"} />
+      <ManagerNavbar title={"Add Expense"} />
       <div
         style={{
           boxShadow: "0px 0px 41.5px 5px rgba(0, 0, 0, 0.18)",
         }}
         className="w-[1385px] h-auto bg-white shadow mx-auto border pt-20 flex flex-col items-center"
       >
+        {/** Expense Source */}
         <div className="flex justify-center items-center gap-24 my-6">
           <h3 className="text-black text-3xl font-medium w-[300px]">
-            Earning source :
+            Expense source:
           </h3>
           <input
             type="text"
@@ -41,55 +42,66 @@ const ManagerAddEarning = () => {
             className="input input-bordered border-[#003DA3] w-[700px] h-[60px]"
           />
         </div>
+
+        {/** Country */}
         <div className="flex justify-center items-center gap-24 my-6">
           <h3 className="text-black text-3xl font-medium w-[300px]">
             Country:
           </h3>
           <select className="select select-bordered border-[#003DA3] w-[700px] h-[60px] text-center text-[15px]">
-            <option value="" disabled>
+            <option disabled selected>
               Select
             </option>
             <option>India</option>
             <option>Bangladesh</option>
           </select>
         </div>
+
+        {/** Place */}
         <div className="flex justify-center items-center gap-24 my-6">
           <h3 className="text-black text-3xl font-medium w-[300px]">Place:</h3>
           <select className="select select-bordered border-[#003DA3] w-[700px] h-[60px] text-center text-[15px]">
-            <option value="" disabled>
+            <option disabled selected>
               Select
             </option>
             <option>India</option>
             <option>Bangladesh</option>
           </select>
         </div>
+
+        {/** Asset Type */}
         <div className="flex justify-center items-center gap-24 my-6">
           <h3 className="text-black text-3xl font-medium w-[300px]">
             Asset Type:
           </h3>
           <select className="select select-bordered border-[#003DA3] w-[700px] h-[60px] text-center text-[15px]">
-            <option value="" disabled>
+            <option disabled selected>
               Select
             </option>
             <option>India</option>
             <option>Bangladesh</option>
           </select>
         </div>
+
+        {/** Asset Name */}
         <div className="flex justify-center items-center gap-24 my-6">
           <h3 className="text-black text-3xl font-medium w-[300px]">
             Asset Name:
           </h3>
           <select className="select select-bordered border-[#003DA3] w-[700px] h-[60px] text-center text-[15px]">
-            <option value="" disabled>
+            <option disabled selected>
               Select
             </option>
             <option>India</option>
             <option>Bangladesh</option>
           </select>
         </div>
-        <div className="flex justify-center items-center gap-24 my-6">
-          <h3 className="text-black text-3xl font-medium w-[300px]">Date:</h3>
 
+        {/** Date of Spending */}
+        <div className="flex justify-center items-center gap-24 my-6">
+          <h3 className="text-black text-3xl font-medium w-[300px]">
+            Date of Spending:
+          </h3>
           <div className="relative">
             <input
               type="text"
@@ -113,16 +125,18 @@ const ManagerAddEarning = () => {
             />
           </div>
         </div>
+
+        {/** Amount */}
         <div className="flex justify-center items-center gap-24 my-6">
-          <h3 className="text-black text-3xl font-medium w-[300px]">
-            Amount :
-          </h3>
+          <h3 className="text-black text-3xl font-medium w-[300px]">Amount:</h3>
           <input
             type="number"
             placeholder="Type here"
             className="input input-bordered border-[#003DA3] w-[700px] h-[60px]"
           />
         </div>
+
+        {/** Client Name */}
         <div className="flex justify-center items-center gap-24 my-6">
           <h3 className="text-black text-3xl font-medium w-[300px]">
             Client Name:
@@ -133,6 +147,8 @@ const ManagerAddEarning = () => {
             className="input input-bordered border-[#003DA3] w-[700px] h-[60px]"
           />
         </div>
+
+        {/** Add Payment Proof */}
         <div className="flex justify-center items-center gap-24 my-6 mr-[600px]">
           <h3 className="text-black text-3xl font-medium w-[300px]">
             Add Payment Proof:
@@ -146,14 +162,13 @@ const ManagerAddEarning = () => {
           <dialog id="my_modal_4" className="modal">
             <div
               {...getRootProps({ className: "dropzone" })}
-              className="w-[1224px] h-[412px] flex flex-col justify-center items-center  relative bg-white rounded-[20px] gap-2"
+              className="w-[1224px] h-[412px] flex flex-col relative justify-center items-center bg-white rounded-[20px] gap-2"
             >
               <img
-                className="btn btn-sm btn-circle btn-ghost absolute  right-4 top-4"
+                className="btn btn-sm btn-circle btn-ghost absolute right-4 top-4"
                 src={img3}
                 onClick={() => document.getElementById("my_modal_4").close()}
               />
-
               <input {...getInputProps()} />
               <img src={img2} alt="" />
               <h2>
@@ -174,12 +189,14 @@ const ManagerAddEarning = () => {
             </div>
           </dialog>
         </div>
+
+        {/** Add Expense Button */}
         <div className="w-[451px] hover:cursor-pointer h-[88px] px-[100px] py-5 bg-blue-800 rounded-[10px] shadow text-center my-6 text-white text-[40px]">
-          Add Earnings
+          Add Expense
         </div>
       </div>
     </>
   );
 };
 
-export default ManagerAddEarning;
+export default ManagerAddExpense;

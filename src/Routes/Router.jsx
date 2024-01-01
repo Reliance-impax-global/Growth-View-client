@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import PrivateRoute from "./PrivateRoute";
 import ManagerAddEarning from "../Pages/manager/ManagerAddEarning";
+import ManagerAddExpense from "../Pages/manager/ManagerAddExpense";
 
 const role = "admi";
 export const router = createBrowserRouter([
@@ -19,7 +20,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "addearning",
-        element:<ManagerAddEarning></ManagerAddEarning>
+        element: <ManagerAddEarning></ManagerAddEarning>,
+      },
+      {
+        path: "addexpense",
+        element: <ManagerAddExpense />,
       },
       {
         path: "login",
