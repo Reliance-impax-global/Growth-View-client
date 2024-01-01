@@ -3,7 +3,7 @@ import logo from "../assets/logo.svg";
 import profileLogo from "../assets/profileLogo.svg";
 import dashOpen from "../assets/dashOpen.svg";
 import dashClose from "../assets/dashClose.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const ManagerNavbar = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -65,28 +65,53 @@ const ManagerNavbar = ({ title }) => {
             <div className="absolute  left-1 w-[333px] bg-[#2d2e2e] rounded-lg overflow-hidden ">
               {" "}
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold  ">
-                  Dashboard
+                <div className="text-white text-[40px] font-semibold">
+                  <NavLink
+                    to="/"
+                    className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
+                  >
+                    Dashboard
+                  </NavLink>
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold  hover:cursor-pointer">
-                  <Link to={"/addearning"}>Add Earning</Link>
+                <div className="text-white text-[40px] font-semibold">
+                  <NavLink
+                    to="/addEarning"
+                    className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
+                  >
+                    Add Earning
+                  </NavLink>
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold hover:cursor-pointer ">
-                  Add Expenses
+                <div className="text-white text-[40px] font-semibold">
+                  <NavLink
+                    to="/addExpense"
+                    className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
+                  >
+                    Add Expense
+                  </NavLink>
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
-                <div className="text-white text-[40px] font-semibold  hover:cursor-pointer">
-                  Earning Record
+                <div className="text-white text-[30px] font-semibold">
+                  <NavLink
+                    to="/earningRecord"
+                    className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
+                  >
+                    Earning Record
+                  </NavLink>
                 </div>
               </div>
               <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex hover:cursor-pointer ">
-                <div className="text-white text-[40px] font-semibold hover:text-red-400">
-                  Expense Record
+                <div className="text-white text-[30px] font-semibold">
+                  <NavLink
+                    to="/expenseRecord"
+                    className="text-white p-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
+                  >
+                    Expense Record
+                  </NavLink>
                 </div>
               </div>
             </div>
