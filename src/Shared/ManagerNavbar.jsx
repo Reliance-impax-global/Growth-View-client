@@ -4,6 +4,7 @@ import profileLogo from "../assets/profileLogo.svg";
 import dashOpen from "../assets/dashOpen.svg";
 import dashClose from "../assets/dashClose.svg";
 import { NavLink } from "react-router-dom";
+import ChangePass from "./ChangePass";
 const ManagerNavbar = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +34,13 @@ const ManagerNavbar = ({ title }) => {
             className="dropdown-content z-[1] menu p-2 shadow  rounded-box w-52 bg-[#029DD1] text-white"
           >
             <li>
-              <button>CHANGE PASSWORD</button>
+              <button
+                onClick={() =>
+                  document.getElementById("my_modal_5").showModal()
+                }
+              >
+                CHANGE PASSWORD
+              </button>
             </li>
             <li>
               <button>LOGOUT</button>
@@ -123,6 +130,7 @@ const ManagerNavbar = ({ title }) => {
       </div>
       {/* second section end */}
       <div className="mx-auto w-[1782.01px] my-4 h-[0px] border border-blue-600"></div>
+<ChangePass></ChangePass>
     </div>
   );
 };
