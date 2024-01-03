@@ -49,12 +49,16 @@ const AuthProvider = ({ children }) => {
     };
   }, [auth]);
 
+  const [isDashboardOpen, setIsDashboardOpen] = useState(false);
+
   const authInfo = {
     createUser,
     signIn,
     logOut,
     setUser,
     loading,
+    isDashboardOpen,
+    setIsDashboardOpen,
     user,
     auth,
     setLoading,

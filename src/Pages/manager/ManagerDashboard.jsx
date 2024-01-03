@@ -1,6 +1,9 @@
 import { PieChart, Pie, Cell } from "recharts";
 import AvailableAssets from "./AvailableAssets";
-import ManagerNavbar from "../../Shared/ManagerNavbar";
+import Navbar from "../../Shared/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+
 const data = [
   { name: "Group A", value: 400 },
   { name: "Group B", value: 300 },
@@ -34,15 +37,22 @@ const renderCustomizedLabel = ({
 };
 
 const ManagerDashboard = () => {
+  const { isDashboardOpen } = useContext(AuthContext);
   return (
     <>
-      <ManagerNavbar title={"Dashboard"}></ManagerNavbar>{" "}
-      <div className="flex gap-5 justify-center items-center">
+      <Navbar title={"Dashboard"}></Navbar>{" "}
+      <div
+        className={`flex gap-5 ${
+          isDashboardOpen ? "justify-end" : "justify-center"
+        } items-center`}
+      >
         <div
           style={{
             boxShadow: "0px 0px 5px 5px rgba(0, 0, 0, 0.25)",
           }}
-          className="w-[1009px] h-[486px] bg-white rounded-[10px] shadow flex justify-around items-center ml-24"
+          className={`${
+            isDashboardOpen ? "w-[759px]" : "w-[1009px]"
+          } h-[486px] bg-white rounded-[10px] shadow flex justify-around items-center ml-24`}
         >
           {" "}
           <div width="100%" height="100%">

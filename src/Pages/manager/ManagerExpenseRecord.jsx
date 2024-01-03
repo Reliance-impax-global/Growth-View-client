@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import pdfImg from "../../assets/pdf.svg";
 import delateImg from "../../assets/delate.svg";
-import ManagerNavbar from "../../Shared/ManagerNavbar";
+import Navbar from "../../Shared/Navbar";
 import {
   BarChart,
   Bar,
@@ -13,10 +13,11 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const ManagerExpenseRecord = () => {
   const [data, setData] = useState([]);
-
+  const { isDashboardOpen } = useContext(AuthContext);
   useEffect(() => {
     fetch("earningData.json")
       .then((res) => res.json())
@@ -53,70 +54,80 @@ const ManagerExpenseRecord = () => {
 
   return (
     <>
-      <ManagerNavbar title={"Earning Record"}></ManagerNavbar>
-      <div className="flex items-end justify-end mr-6 relative">
-        <div
-          className="w-[1518px] h-[600px] bg-white shadow "
-          style={{
-            boxShadow: "0px 0px 41.5px 5px rgba(0, 0, 0, 0.18)",
-          }}
-        >
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart
-              width={500}
-              height={300}
-              data={data}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="month" />
-              <YAxis
-                type="number"
-                domain={[0, maxYValue]}
-                ticks={yTicks}
-                tickFormatter={formatYTick}
-              />
-              <Tooltip />
-              <Legend
-                verticalAlign="middle"
-                align="right"
-                layout="vertical"
-                wrapperStyle={{
-                  right: 10,
-                  top: "70%",
-                  transform: "translate(0, -50%)",
+      <Navbar title={"Earning Record"}></Navbar>
+      <div
+        className={`flex items-end ${
+          isDashboardOpen ? "justify-end" : "justify-center"
+        } mr-6 `}
+      >
+        <div className="relative">
+          <div
+            className="w-[1518px] h-[600px] bg-white shadow "
+            style={{
+              boxShadow: "0px 0px 41.5px 5px rgba(0, 0, 0, 0.18)",
+            }}
+          >
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
                 }}
-                width={300}
-              />
-              <Bar dataKey="carEarning" fill="#AE1E8F" name="Car earning">
-                <LabelList dataKey="carEarning" position="top" />
-              </Bar>
-              <Bar
-                dataKey="websiteEarning"
-                fill="#05D3A1"
-                name="Website earning"
               >
-                <LabelList dataKey="websiteEarning" position="top" />
-              </Bar>
-              <Bar dataKey="officeEarning" fill="#E4C10A" name="Office earning">
-                <LabelList dataKey="officeEarning" position="top" />
-              </Bar>
-            </BarChart>
-          </ResponsiveContainer>
-          <div className="absolute top-4 right-6 flex items-center justify-center gap-3">
-            <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5">
-              Daily
-            </div>
-            <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5 ">
-              Weekly
-            </div>
-            <div className="w-auto h-[50px] text-white text-[20px] font-medium  p-2.5 bg-[#029DD1] rounded-[20px] justify-center items-center gap-2.5 ">
-              Monthly
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="month" />
+                <YAxis
+                  type="number"
+                  domain={[0, maxYValue]}
+                  ticks={yTicks}
+                  tickFormatter={formatYTick}
+                />
+                <Tooltip />
+                <Legend
+                  verticalAlign="middle"
+                  align="right"
+                  layout="vertical"
+                  wrapperStyle={{
+                    right: 10,
+                    top: "70%",
+                    transform: "translate(0, -50%)",
+                  }}
+                  width={300}
+                />
+                <Bar dataKey="carEarning" fill="#AE1E8F" name="Car earning">
+                  <LabelList dataKey="carEarning" position="top" />
+                </Bar>
+                <Bar
+                  dataKey="websiteEarning"
+                  fill="#05D3A1"
+                  name="Website earning"
+                >
+                  <LabelList dataKey="websiteEarning" position="top" />
+                </Bar>
+                <Bar
+                  dataKey="officeEarning"
+                  fill="#E4C10A"
+                  name="Office earning"
+                >
+                  <LabelList dataKey="officeEarning" position="top" />
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+            <div className="absolute top-4 right-6 flex items-center justify-center gap-3">
+              <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5">
+                Daily
+              </div>
+              <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5 ">
+                Weekly
+              </div>
+              <div className="w-auto h-[50px] text-white text-[20px] font-medium  p-2.5 bg-[#029DD1] rounded-[20px] justify-center items-center gap-2.5 ">
+                Monthly
+              </div>
             </div>
           </div>
         </div>
