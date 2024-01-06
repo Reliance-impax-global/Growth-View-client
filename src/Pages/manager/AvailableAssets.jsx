@@ -17,7 +17,6 @@ const AvailableAssets = () => {
     fetchData();
   }, []);
 
-  
   return (
     <div className="mt-[50px] px-[40px]">
       <h3 className="text-blue-800 text-[40px] font-semibold font-['Inter'] ">
