@@ -1,4 +1,23 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const AvailableAssets = () => {
+  const [assets, setAssets] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/assets");
+        setAssets(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  
   return (
     <div className="mt-[50px] px-[40px]">
       <h3 className="text-blue-800 text-[40px] font-semibold font-['Inter'] ">
@@ -8,102 +27,49 @@ const AvailableAssets = () => {
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead className="border-none">
-            <tr className="text-black text-[25px] font-medium font-['Inter']">
-              <th>Country</th>
-              <th>Place</th>
-              <th>Asset Category </th>
-              <th>Asset Name </th>
-              <th>Asset Expense Amount </th>
-            </tr>
-          </thead>
-          <tbody className="text-neutral-400 text-[25px]">
-            {/* row 1 */}
-            <tr>
-              <td>India</td>
-              <td>
-                <ul className="space-y-4">
-                  <li>Dhaka</li>
-                  <li>Mumbai</li>
-                  <li>Pune</li>
-                </ul>
-              </td>
-              <td>Car</td>
-              <td>
-                <ul className="space-y-4">
-                  <li>Range Rover</li>
-                  <li>Wagon R</li>
-                  <li>SUV</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table className="table my-12">
-          {/* head */}
-          <thead className="border-none">
-            <tr className="text-black text-[25px] font-medium font-['Inter']">
-              <th>Country</th>
-              <th>Place</th>
-              <th>Asset Category </th>
-              <th>Asset Name </th>
-              <th>Asset Expense Amount </th>
-            </tr>
-          </thead>
-          <tbody className="text-neutral-400 text-[25px]">
-            {/* row 1 */}
-            <tr>
-              <td>India</td>
-              <td>
-                <ul className="space-y-4">
-                  <li>Dhaka</li>
-                  <li>Mumbai</li>
-                  <li>Pune</li>
-                </ul>
-              </td>
-              <td>Car</td>
-              <td>
-                <ul className="space-y-4">
-                  <li>Range Rover</li>
-                  <li>Wagon R</li>
-                  <li>SUV</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table className="table">
-          {/* head */}
-          <thead className="border-none">
-            <tr className="text-black text-[25px] font-medium font-['Inter']">
-              <th>Country</th>
-              <th>Place</th>
-              <th>Asset Category </th>
-              <th>Asset Name </th>
-              <th>Asset Expense Amount </th>
-            </tr>
-          </thead>
-          <tbody className="text-neutral-400 text-[25px]">
-            {/* row 1 */}
-            <tr>
-              <td>India</td>
-              <td>
-                <ul className="space-y-4">
-                  <li>Dhaka</li>
-                  <li>Mumbai</li>
-                  <li>Pune</li>
-                </ul>
-              </td>
-              <td>Car</td>
-              <td>
-                <ul className="space-y-4">
-                  <li>Range Rover</li>
-                  <li>Wagon R</li>
-                  <li>SUV</li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
+          {assets.map((asset) => (
+            <table key={asset._id} className="table my-12">
+              {/* head */}
+              <thead className="border-none">
+                <tr className="text-black text-[25px] font-medium font-['Inter']">
+                  <th>Country</th>
+                  <th>Place</th>
+                  <th>Asset Category </th>
+                  <th>Asset Name </th>
+                  <th>Asset Expense Amount </th>
+                </tr>
+              </thead>
+              <tbody className="text-neutral-400 text-[25px]">
+                {/* row 1 */}
+                <tr>
+                  <td>{asset.country}</td>
+                  <td>
+                    <ul className="space-y-4">
+                      {asset.place.map((p, i) => (
+                        <li key={i}>{p}</li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td>{asset.asset_category}</td>
+                  <td>
+                    <ul className="space-y-4">
+                      {asset.asset_name.map((n, i) => (
+                        <li key={i}>{n}</li>
+                      ))}
+                    </ul>
+                  </td>
+                  <td>
+                    {" "}
+                    <ul className="space-y-4">
+                      {asset.asset_expense_amount.map((e, i) => (
+                        <li key={i}>{e}</li>
+                      ))}
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          ))}
         </table>
       </div>
     </div>

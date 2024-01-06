@@ -9,7 +9,7 @@ import ManagerEarningRecord from "../Pages/manager/ManagerEarningRecord";
 import ManagerExpenseRecord from "../Pages/manager/ManagerExpenseRecord";
 import HomeAdmin from "../Pages/Home/HomeAdmin";
 
-const role = "admin";
+const role = "manager";
 export const router = createBrowserRouter([
   {
     path: "/",

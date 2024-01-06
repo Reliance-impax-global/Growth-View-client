@@ -9,8 +9,8 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { setIsDashboardOpen } = useContext(AuthContext);
-  const role = "admin";
+  const { setIsDashboardOpen, logOut } = useContext(AuthContext);
+  const role = "manager";
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -47,7 +47,7 @@ const Navbar = ({ title }) => {
               </button>
             </li>
             <li>
-              <button>LOGOUT</button>
+              <button onClick={() => logOut()}>LOGOUT</button>
             </li>
           </ul>
         </div>
@@ -88,6 +88,7 @@ const Navbar = ({ title }) => {
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
                         to="/"
+                        onClick={() => setIsDashboardOpen(false)}
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
                         Dashboard
@@ -97,6 +98,7 @@ const Navbar = ({ title }) => {
                   <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
+                        onClick={() => setIsDashboardOpen(false)}
                         to="/addEarning"
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
@@ -108,6 +110,7 @@ const Navbar = ({ title }) => {
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
                         to="/addExpense"
+                        onClick={() => setIsDashboardOpen(false)}
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
                         Add Expense
@@ -118,6 +121,7 @@ const Navbar = ({ title }) => {
                     <div className="text-white text-[30px] font-semibold">
                       <NavLink
                         to="/earningRecord"
+                        onClick={() => setIsDashboardOpen(false)}
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
                         Earning Record
@@ -127,6 +131,7 @@ const Navbar = ({ title }) => {
                   <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex hover:cursor-pointer ">
                     <div className="text-white text-[30px] font-semibold">
                       <NavLink
+                        onClick={() => setIsDashboardOpen(false)}
                         to="/expenseRecord"
                         className="text-white p-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
@@ -142,6 +147,7 @@ const Navbar = ({ title }) => {
                   <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
+                        onClick={() => setIsDashboardOpen(false)}
                         to="/profitLoss"
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
@@ -152,6 +158,7 @@ const Navbar = ({ title }) => {
                   <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
+                        onClick={() => setIsDashboardOpen(false)}
                         to="/earning"
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
@@ -162,6 +169,7 @@ const Navbar = ({ title }) => {
                   <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
+                        onClick={() => setIsDashboardOpen(false)}
                         to="/expense"
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
@@ -173,6 +181,7 @@ const Navbar = ({ title }) => {
                     <div className="text-white text-[30px] font-semibold">
                       <NavLink
                         to="/availableAsset"
+                        onClick={() => setIsDashboardOpen(false)}
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
                         Available Asset
@@ -183,6 +192,7 @@ const Navbar = ({ title }) => {
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
                         to="/addAsset"
+                        onClick={() => setIsDashboardOpen(false)}
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
                         Add Asset
