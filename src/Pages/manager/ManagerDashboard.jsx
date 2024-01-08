@@ -4,6 +4,7 @@ import Navbar from "../../Shared/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
+
 const data = [
   { name: "Group A", value: 400 },
   { name: "Group B", value: 300 },
@@ -38,6 +39,8 @@ const renderCustomizedLabel = ({
 
 const ManagerDashboard = () => {
   const { isDashboardOpen } = useContext(AuthContext);
+
+
   return (
     <>
       <Navbar title={"Dashboard"}></Navbar>{" "}

@@ -7,7 +7,10 @@ const AvailableAssets = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/assets");
+        const response = await axios.get(
+          // "https://rig-task-server-57d4pbct0-abrarazmain.vercel.app/assets"
+          "https://rig-task-server.vercel.app/assets"
+        );
         setAssets(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);

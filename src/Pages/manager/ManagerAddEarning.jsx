@@ -25,43 +25,45 @@ const ManagerAddEarning = () => {
   const { getRootProps, getInputProps, open, acceptedFiles } = useDropzone({
     noClick: true,
     noKeyboard: true,
+    accept: "application/pdf",
+    maxFiles: 1,
   });
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      const formData = new FormData();
-      formData.append("file", acceptedFiles[0]);
+      // const formData = new FormData();
+      // formData.append("file", acceptedFiles[0]);
 
       // Upload file to the server using axios
-      const fileResponse = await axios.post(
-        "http://localhost:5000/payment/upload",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      // const fileResponse = await axios.post(
+      //   "https://rig-task-server.vercel.app/payment/upload",
+      //   formData,
+      //   {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   }
+      // );
 
-      if (!fileResponse.data.filePath) {
-        throw new Error("File upload failed");
-      }
+      // if (!fileResponse.data.filePath) {
+      //   throw new Error("File upload failed");
+      // }
 
       // Get the file link from the server response
-      const { filePath } = fileResponse.data;
+      // const { filePath } = fileResponse.data;
 
       // Combine file link with other processed data
       const processedData = {
         ...data,
         date: selectedDate.toLocaleDateString("en-GB"),
-        proof_file: filePath,
+        // proof_file: filePath,
         added_by: user.email,
       };
 
       // Now, you can send processedData to the server for MongoDB storage
       const submitResponse = await axios.post(
-        "http://localhost:5000/addEarning",
+        "https://rig-task-server.vercel.app/addEarning",
         processedData,
         {
           headers: {
@@ -73,7 +75,7 @@ const ManagerAddEarning = () => {
       console.log(submitResponse.data);
 
       if (submitResponse.data.insertedId) {
-        Swal.fire("Success", "earning added successfully!", "ok");
+        Swal.fire("success", "earning added successfully!", "ok");
         reset();
       }
 
@@ -101,6 +103,7 @@ const ManagerAddEarning = () => {
                 Earning source :
               </h3>
               <input
+                required
                 {...register("earning_source")}
                 type="text"
                 placeholder="Type here"
@@ -112,6 +115,7 @@ const ManagerAddEarning = () => {
                 Country:
               </h3>
               <select
+                required
                 {...register("country")}
                 className="select select-bordered border-[#003DA3] w-[700px] h-[60px] text-center text-[15px]"
               >
@@ -127,6 +131,7 @@ const ManagerAddEarning = () => {
                 Place:
               </h3>
               <select
+                required
                 {...register("place")}
                 className="select select-bordered border-[#003DA3] w-[700px] h-[60px] text-center text-[15px]"
               >
@@ -143,6 +148,7 @@ const ManagerAddEarning = () => {
                 Asset Type:
               </h3>
               <select
+                required
                 {...register("asset_type")}
                 className="select select-bordered border-[#003DA3] w-[700px] h-[60px] text-center text-[15px]"
               >
@@ -159,6 +165,7 @@ const ManagerAddEarning = () => {
                 Asset Name:
               </h3>
               <select
+                required
                 {...register("asset_name")}
                 className="select select-bordered border-[#003DA3] w-[700px] h-[60px] text-center text-[15px]"
               >
@@ -177,6 +184,7 @@ const ManagerAddEarning = () => {
 
               <div className="relative">
                 <input
+                  required
                   {...register("date")}
                   type="text"
                   placeholder="DD/MM/YYYY"
@@ -204,6 +212,7 @@ const ManagerAddEarning = () => {
                 Amount :
               </h3>
               <input
+                required
                 {...register("amount")}
                 type="number"
                 placeholder="Type here"
@@ -215,6 +224,7 @@ const ManagerAddEarning = () => {
                 Client Name:
               </h3>
               <input
+                required
                 {...register("client_name")}
                 type="text"
                 placeholder="Type here"
