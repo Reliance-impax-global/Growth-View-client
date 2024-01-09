@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Navbar from "../../Shared/Navbar";
 import {
   BarChart,
@@ -10,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { AuthContext } from "../../provider/AuthProvider";
 const data = [
   {
     name: "Page A",
@@ -56,40 +58,193 @@ const data = [
 ];
 
 const AdminProfitLoss = () => {
+  const { isDashboardOpen } = useContext(AuthContext);
+
   return (
     <>
       <Navbar title={"Profit/Loss"}></Navbar>
-      <div className="w-[1540px] h-[643px] bg-white shadow mx-auto">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar
-              dataKey="pv"
-              fill="#8884d8"
-              activeBar={<Rectangle fill="pink" stroke="blue" />}
-            />
-            <Bar
-              dataKey="uv"
-              fill="#82ca9d"
-              activeBar={<Rectangle fill="gold" stroke="purple" />}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-        );
+      {/* section 1 */}
+      <div
+        className={`flex items-end ${
+          isDashboardOpen ? "justify-end" : "justify-center"
+        } mr-6 `}
+      >
+        <div className="w-[1540px] h-[673px] bg-white shadow relative">
+          <div className="text-black text-[40px] font-semibold ml-20">
+            Profit/Loss from Car
+          </div>
+
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={400}
+              data={data}
+              margin={{
+                top: 0,
+                right: 10,
+                left: 20,
+                bottom: 25,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend
+                verticalAlign="middle"
+                align="right"
+                layout="vertical"
+                wrapperStyle={{
+                  right: -10,
+
+                  top: "70%",
+                  transform: "translate(0, -50%)",
+                }}
+                width={300}
+              />
+              <Bar
+                dataKey="pv"
+                fill="#02D13C"
+                activeBar={<Rectangle fill="pink" stroke="blue" />}
+              />
+              <Bar
+                dataKey="uv"
+                fill="#A21113"
+                activeBar={<Rectangle fill="gold" stroke="purple" />}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className="absolute top-4 right-6 flex items-center justify-center gap-3">
+            <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5">
+              Monthly
+            </div>
+            <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5 ">
+              Yearly
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* section 2 */}
+      <div
+        className={`flex items-end ${
+          isDashboardOpen ? "justify-end" : "justify-center"
+        } mr-6 my-36`}
+      >
+        <div className="w-[1540px] h-[673px] bg-white shadow relative">
+          <div className="text-black text-[40px] font-semibold ml-20">
+            Profit/Loss from Office
+          </div>
+
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={400}
+              data={data}
+              margin={{
+                top: 0,
+                right: 10,
+                left: 20,
+                bottom: 25,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend
+                verticalAlign="middle"
+                align="right"
+                layout="vertical"
+                wrapperStyle={{
+                  right: -10,
+
+                  top: "70%",
+                  transform: "translate(0, -50%)",
+                }}
+                width={300}
+              />
+              <Bar
+                dataKey="pv"
+                fill="#02D13C"
+                activeBar={<Rectangle fill="pink" stroke="blue" />}
+              />
+              <Bar
+                dataKey="uv"
+                fill="#A21113"
+                activeBar={<Rectangle fill="gold" stroke="purple" />}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className="absolute top-4 right-6 flex items-center justify-center gap-3">
+            <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5">
+              Monthly
+            </div>
+            <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5 ">
+              Yearly
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* section 3 */}
+      <div
+        className={`flex items-end ${
+          isDashboardOpen ? "justify-end" : "justify-center"
+        } mr-6 `}
+      >
+        <div className="w-[1540px] h-[673px] bg-white shadow relative">
+          <div className="text-black text-[40px] font-semibold ml-20">
+            Profit/Loss from Website
+          </div>
+
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={500}
+              height={400}
+              data={data}
+              margin={{
+                top: 0,
+                right: 10,
+                left: 20,
+                bottom: 25,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend
+                verticalAlign="middle"
+                align="right"
+                layout="vertical"
+                wrapperStyle={{
+                  right: -10,
+
+                  top: "70%",
+                  transform: "translate(0, -50%)",
+                }}
+                width={300}
+              />
+              <Bar
+                dataKey="pv"
+                fill="#02D13C"
+                activeBar={<Rectangle fill="pink" stroke="blue" />}
+              />
+              <Bar
+                dataKey="uv"
+                fill="#A21113"
+                activeBar={<Rectangle fill="gold" stroke="purple" />}
+              />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className="absolute top-4 right-6 flex items-center justify-center gap-3">
+            <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5">
+              Monthly
+            </div>
+            <div className="w-auto  h-[50px] text-white text-[20px] font-medium  p-2.5 bg-blue-800 rounded-[20px] justify-center items-center gap-2.5 ">
+              Yearly
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

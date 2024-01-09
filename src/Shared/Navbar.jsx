@@ -10,7 +10,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const Navbar = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { setIsDashboardOpen, logOut } = useContext(AuthContext);
-  const role = "manager";
+  const role = "admin";
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };

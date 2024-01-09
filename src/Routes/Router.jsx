@@ -8,8 +8,10 @@ import ManagerAddExpense from "../Pages/manager/ManagerAddExpense";
 import ManagerEarningRecord from "../Pages/manager/ManagerEarningRecord";
 import ManagerExpenseRecord from "../Pages/manager/ManagerExpenseRecord";
 import HomeAdmin from "../Pages/Home/HomeAdmin";
+import AddAsset from "../Pages/admin/AddAsset";
+import AvailableAssets from "../Pages/manager/AvailableAssets";
 
-const role = "manager";
+const role = "admin";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +41,14 @@ export const router = createBrowserRouter([
       {
         path: "expenseRecord",
         element: <ManagerExpenseRecord />,
+      },
+      {
+        path: "addAsset",
+        element: <AddAsset />,
+      },
+      {
+        path: "availableAsset",
+        element: <AvailableAssets />,
       },
       {
         path: "login",
