@@ -11,6 +11,7 @@ import HomeAdmin from "../Pages/Home/HomeAdmin";
 import AddAsset from "../Pages/admin/AddAsset";
 import AdminAvailableAssets from "../Pages/admin/AdminAvailableAssets";
 
+
 const role = "admin";
 export const router = createBrowserRouter([
   {

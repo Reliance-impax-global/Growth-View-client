@@ -148,7 +148,7 @@ const Navbar = ({ title }) => {
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
                         onClick={() => setIsDashboardOpen(false)}
-                        to="/profitLoss"
+                        to="/"
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
                         Profit/Loss
