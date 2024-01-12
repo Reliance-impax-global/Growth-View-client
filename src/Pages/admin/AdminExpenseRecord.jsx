@@ -15,7 +15,7 @@ import {
 } from "recharts";
 import { AuthContext } from "../../provider/AuthProvider";
 
-const ManagerExpenseRecord = () => {
+const AdminExpenseRecord = () => {
   const [data, setData] = useState([]);
   const { isDashboardOpen } = useContext(AuthContext);
   useEffect(() => {
@@ -23,7 +23,7 @@ const ManagerExpenseRecord = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
- 
+
   const maxYValue =
     Math.max(
       ...data.flatMap((entry) => [
@@ -31,7 +31,7 @@ const ManagerExpenseRecord = () => {
         entry.websiteEarning,
         entry.officeEarning,
       ])
-    ) + 10000; 
+    ) + 10000;
 
   const calculateYTicks = () => {
     const ticks = [];
@@ -239,4 +239,4 @@ const ManagerExpenseRecord = () => {
   );
 };
 
-export default ManagerExpenseRecord;
+export default AdminExpenseRecord;

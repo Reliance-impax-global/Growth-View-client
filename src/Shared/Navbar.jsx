@@ -159,7 +159,7 @@ const Navbar = ({ title }) => {
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
                         onClick={() => setIsDashboardOpen(false)}
-                        to="/earning"
+                        to="/adminEarningRecord"
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
                         Earning
@@ -170,7 +170,7 @@ const Navbar = ({ title }) => {
                     <div className="text-white text-[40px] font-semibold">
                       <NavLink
                         onClick={() => setIsDashboardOpen(false)}
-                        to="/expense"
+                        to="/adminExpenseRecord"
                         className="text-white px-6 py-4 rounded hover:text-[#5f57c5] transition-colors duration-300 aria-[current=page]:bg-[#02779E]"
                       >
                         Expense

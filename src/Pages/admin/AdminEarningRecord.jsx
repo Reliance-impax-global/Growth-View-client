@@ -15,7 +15,7 @@ import {
 } from "recharts";
 import { AuthContext } from "../../provider/AuthProvider";
 
-const ManagerExpenseRecord = () => {
+const AdminEarningRecord = () => {
   const [data, setData] = useState([]);
   const { isDashboardOpen } = useContext(AuthContext);
   useEffect(() => {
@@ -23,7 +23,7 @@ const ManagerExpenseRecord = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
- 
+  // Calculate the maximum value among all income sources for all months
   const maxYValue =
     Math.max(
       ...data.flatMap((entry) => [
@@ -31,7 +31,7 @@ const ManagerExpenseRecord = () => {
         entry.websiteEarning,
         entry.officeEarning,
       ])
-    ) + 10000; 
+    ) + 10000; // Add an extra 10k to the max value for some padding
 
   const calculateYTicks = () => {
     const ticks = [];
@@ -134,7 +134,7 @@ const ManagerExpenseRecord = () => {
       </div>
       {/* Earning record section */}
       <div className="mt-[80px] px-[40px] max-w-screen">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between">
           <h3 className="text-blue-800 text-[40px] font-semibold  ">
             Car Earning
           </h3>
@@ -152,12 +152,12 @@ const ManagerExpenseRecord = () => {
             {/* head */}
             <thead className="border-none">
               <tr className="text-black text-[25px] font-medium font-['Inter']">
-                <th>Expense Name</th>
+                <th>Earning Source</th>
                 <th>Country</th>
                 <th>Place </th>
                 <th>Asset Type </th>
                 <th>Asset Name </th>
-                <th>Date of Expense </th>
+                <th>Date of Earning </th>
                 <th>Amount</th>
                 <th>Client Name</th>
                 <th>Payment Proof</th>
@@ -239,4 +239,4 @@ const ManagerExpenseRecord = () => {
   );
 };
 
-export default ManagerExpenseRecord;
+export default AdminEarningRecord;

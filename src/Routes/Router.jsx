@@ -11,7 +11,8 @@ import HomeAdmin from "../Pages/Home/HomeAdmin";
 import AddAsset from "../Pages/admin/AddAsset";
 import AdminAvailableAssets from "../Pages/admin/AdminAvailableAssets";
 import ErrorPage from "../Shared/ErrorPage";
-
+import AdminEarningRecord from "../Pages/admin/AdminEarningRecord";
+import AdminExpenseRecord from "../Pages/admin/AdminExpenseRecord";
 
 const role = "admin";
 export const router = createBrowserRouter([
@@ -41,8 +42,16 @@ export const router = createBrowserRouter([
         element: <ManagerEarningRecord />,
       },
       {
+        path: "adminEarningRecord",
+        element: <AdminEarningRecord />,
+      },
+      {
         path: "expenseRecord",
         element: <ManagerExpenseRecord />,
+      },
+      {
+        path: "adminExpenseRecord",
+        element: <AdminExpenseRecord />,
       },
       {
         path: "addAsset",
@@ -60,6 +69,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "*",
-    element:<ErrorPage></ErrorPage>
-  }
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);
