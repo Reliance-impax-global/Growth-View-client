@@ -135,7 +135,7 @@ const ManagerDashboard = () => {
         </div>
       </div>
       <div>
-        <AvailableAssets></AvailableAssets>
+    <AvailableAssets></AvailableAssets>
       </div>
     </>
   );

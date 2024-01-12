@@ -10,6 +10,7 @@ import ManagerExpenseRecord from "../Pages/manager/ManagerExpenseRecord";
 import HomeAdmin from "../Pages/Home/HomeAdmin";
 import AddAsset from "../Pages/admin/AddAsset";
 import AdminAvailableAssets from "../Pages/admin/AdminAvailableAssets";
+import ErrorPage from "../Shared/ErrorPage";
 
 
 const role = "admin";
@@ -57,4 +58,8 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element:<ErrorPage></ErrorPage>
+  }
 ]);
