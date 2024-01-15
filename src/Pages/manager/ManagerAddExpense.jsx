@@ -72,8 +72,6 @@ const ManagerAddExpense = () => {
         }
       );
 
-
-
       if (submitResponse.data.insertedId) {
         Swal.fire("success", "Expense added successfully!", "ok");
         setSelectedDate(null);

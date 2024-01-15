@@ -7,12 +7,13 @@ import ManagerAddEarning from "../Pages/manager/ManagerAddEarning";
 import ManagerAddExpense from "../Pages/manager/ManagerAddExpense";
 import ManagerEarningRecord from "../Pages/manager/ManagerEarningRecord";
 import ManagerExpenseRecord from "../Pages/manager/ManagerExpenseRecord";
-
 import AddAsset from "../Pages/admin/AddAsset";
 import AdminAvailableAssets from "../Pages/admin/AdminAvailableAssets";
 import ErrorPage from "../Shared/ErrorPage";
 import AdminEarningRecord from "../Pages/admin/AdminEarningRecord";
 import AdminExpenseRecord from "../Pages/admin/AdminExpenseRecord";
+import AdminRoute from "./AdminRoute";
+import ManagerRoute from "./ManagerRoute";
 
 export const router = createBrowserRouter([
   {
@@ -30,35 +31,67 @@ export const router = createBrowserRouter([
       },
       {
         path: "addEarning",
-        element: <ManagerAddEarning></ManagerAddEarning>,
+        element: (
+          <ManagerRoute>
+            <ManagerAddEarning></ManagerAddEarning>
+          </ManagerRoute>
+        ),
       },
       {
         path: "addExpense",
-        element: <ManagerAddExpense />,
+        element: (
+          <ManagerRoute>
+            <ManagerAddExpense />
+          </ManagerRoute>
+        ),
       },
       {
         path: "earningRecord",
-        element: <ManagerEarningRecord />,
+        element: (
+          <ManagerRoute>
+            <ManagerEarningRecord />
+          </ManagerRoute>
+        ),
       },
       {
         path: "adminEarningRecord",
-        element: <AdminEarningRecord />,
+        element: (
+          <AdminRoute>
+            <AdminEarningRecord />
+          </AdminRoute>
+        ),
       },
       {
         path: "expenseRecord",
-        element: <ManagerExpenseRecord />,
+        element: (
+          <ManagerRoute>
+            <ManagerExpenseRecord />
+          </ManagerRoute>
+        ),
       },
       {
         path: "adminExpenseRecord",
-        element: <AdminExpenseRecord />,
+        element: (
+          <AdminRoute>
+            <AdminExpenseRecord />
+          </AdminRoute>
+        ),
       },
       {
         path: "addAsset",
-        element: <AddAsset />,
+        element: (
+          <AdminRoute>
+            <AddAsset />
+          </AdminRoute>
+        ),
       },
       {
         path: "availableAsset",
-        element: <AdminAvailableAssets />,
+        element: (
+          <AdminRoute>
+            <AdminAvailableAssets />
+          </AdminRoute>
+        ),
       },
       {
         path: "login",
