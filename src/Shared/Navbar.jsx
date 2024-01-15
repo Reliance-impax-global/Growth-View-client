@@ -6,15 +6,17 @@ import dashClose from "../assets/dashClose.svg";
 import { NavLink } from "react-router-dom";
 import ChangePass from "./ChangePass";
 import { AuthContext } from "../provider/AuthProvider";
+import useUserRole from "../hooks/useUserRole";
 
 const Navbar = ({ title }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { setIsDashboardOpen, logOut } = useContext(AuthContext);
-  const role = "admin";
+  const { setIsDashboardOpen, logOut, userRole } = useContext(AuthContext);
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
-
+  // eslint-disable-next-line no-unused-vars
+  const [role]=useUserRole()
   return (
     <div className="w-screen h-[250px] relative">
       {/* Navbar first section start */}
@@ -81,7 +83,7 @@ const Navbar = ({ title }) => {
           {/* Nav link start */}
           {isOpen && (
             <div className="absolute left-1 w-[333px] bg-[#2d2e2e] rounded-lg overflow-hidden">
-              {role === "manager" && (
+              {userRole.toLocaleLowerCase() === "manager" && (
                 <>
                   {/* manager Links */}
                   <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">
@@ -141,7 +143,7 @@ const Navbar = ({ title }) => {
                   </div>
                 </>
               )}
-              {role === "admin" && (
+              {userRole.toLocaleLowerCase() === "admin" && (
                 <>
                   {/* Admin links */}
                   <div className="w-[333px] h-[130px] px-2.5 py-[40px] bg-[#029DD1] justify-center items-center gap-2.5 inline-flex">

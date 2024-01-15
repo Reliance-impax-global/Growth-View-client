@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
-import { router } from "./Routes/Router.jsx";
+
 import AuthProvider from "./provider/AuthProvider.jsx";
 import { isMobile } from "react-device-detect";
 import MobileDeviceMsg from "./MobileDeviceMsg.jsx";
+import { router } from "./Routes/Router.jsx";
 
 const smallWidth = window.innerWidth <= 700;
 

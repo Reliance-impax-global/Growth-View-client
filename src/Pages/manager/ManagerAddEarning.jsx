@@ -72,7 +72,7 @@ const ManagerAddEarning = () => {
         }
       );
 
-      console.log(submitResponse.data);
+
 
       if (submitResponse.data.insertedId) {
         Swal.fire("success", "earning added successfully!", "ok");

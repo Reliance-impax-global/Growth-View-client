@@ -7,14 +7,13 @@ import ManagerAddEarning from "../Pages/manager/ManagerAddEarning";
 import ManagerAddExpense from "../Pages/manager/ManagerAddExpense";
 import ManagerEarningRecord from "../Pages/manager/ManagerEarningRecord";
 import ManagerExpenseRecord from "../Pages/manager/ManagerExpenseRecord";
-import HomeAdmin from "../Pages/Home/HomeAdmin";
+
 import AddAsset from "../Pages/admin/AddAsset";
 import AdminAvailableAssets from "../Pages/admin/AdminAvailableAssets";
 import ErrorPage from "../Shared/ErrorPage";
 import AdminEarningRecord from "../Pages/admin/AdminEarningRecord";
 import AdminExpenseRecord from "../Pages/admin/AdminExpenseRecord";
 
-const role = "admin";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +24,7 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             {" "}
-            {role === "admin" ? <HomeAdmin /> : <Home />}
+            <Home></Home>
           </PrivateRoute>
         ),
       },

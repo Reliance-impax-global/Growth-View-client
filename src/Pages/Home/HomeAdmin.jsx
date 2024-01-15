@@ -1,6 +1,5 @@
 import AdminProfitLoss from "../admin/AdminProfitLoss";
 
-
 const HomeAdmin = () => {
   return (
     <div>

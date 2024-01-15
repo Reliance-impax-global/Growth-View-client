@@ -72,7 +72,7 @@ const ManagerAddExpense = () => {
         }
       );
 
-      console.log(submitResponse.data);
+
 
       if (submitResponse.data.insertedId) {
         Swal.fire("success", "Expense added successfully!", "ok");

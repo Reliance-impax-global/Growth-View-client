@@ -1,14 +1,10 @@
-{
-  "_id": {
-    "$oid": "65990677303bb3a33e93a6de"
+[
+  {
+    email: "apple@gmail.com",
+    role: "manager",
   },
-  "country": "India",
-  "place": ["Mumbai", "Pune", "Bangalore"],
-  "asset_category": "Car",
-  "asset_name": ["Range Rover", "Wagon R", "SUV"],
-  "asset_expense_amount": [
-    { "$numberInt": "5000" },
-    { "$numberInt": "6000" },
-    { "$numberInt": "7000" }
-  ]
-}
+  {
+    email: "apple2@gmail.com",
+    role: "admin",
+  },
+];

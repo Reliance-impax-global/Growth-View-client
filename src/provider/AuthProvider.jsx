@@ -10,12 +10,14 @@ import {
 } from "firebase/auth";
 import app from "../firebase/firebase.js";
 
+
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [userRole, setUserRole] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -51,6 +53,9 @@ const AuthProvider = ({ children }) => {
 
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
 
+
+
+
   const authInfo = {
     createUser,
     signIn,
@@ -63,6 +68,8 @@ const AuthProvider = ({ children }) => {
     auth,
     setLoading,
     updateUserProfile,
+    userRole,
+    setUserRole,
   };
   return (
     <div>
