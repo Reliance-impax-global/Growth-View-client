@@ -12,7 +12,8 @@ const useEarningRecord = () => {
         const response = await axios.get(
           `https://rig-task-server.vercel.app/earnings/${user.email}`
         );
-        setEarningData(response.data);
+        // Ensure response.data is always an array
+        setEarningData(Array.isArray(response.data) ? response.data : []);
       } catch (error) {
         console.error("Error fetching earnings data:", error);
       }

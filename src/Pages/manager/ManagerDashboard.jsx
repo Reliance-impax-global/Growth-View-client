@@ -3,7 +3,7 @@ import AvailableAssets from "./AvailableAssets";
 import Navbar from "../../Shared/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-
+import useEarningRecord from "../../hooks/useEarningRecord";
 
 const data = [
   { name: "Group A", value: 400 },
@@ -39,7 +39,17 @@ const renderCustomizedLabel = ({
 
 const ManagerDashboard = () => {
   const { isDashboardOpen } = useContext(AuthContext);
+  const earningData = useEarningRecord();
 
+  const carEarning = earningData.filter(
+    (data) => data.asset_type.toLowerCase() === "car"
+  );
+  const websiteEarning = earningData.filter(
+    (data) => data.asset_type.toLowerCase() === "website"
+  );
+  const officeEarning = earningData.filter(
+    (data) => data.asset_type.toLowerCase() === "office"
+  );
 
   return (
     <>
@@ -114,28 +124,36 @@ const ManagerDashboard = () => {
           }}
           className="w-[749px] h-[486px] bg-white rounded-[10px] shadow flex flex-col items-center justify-center"
         >
-          <div className="flex items-center justify-center">
-            <p className="text-blue-800 text-[80px] font-bold ">1</p>
-            <h3 className="w-[335px] text-center text-cyan-500 text-[35px] font-medium">
-              Car Expense Added
-            </h3>
-          </div>
-          <div className="flex items-center justify-center">
-            <p className="text-blue-800 text-[80px] font-bold ">0</p>
-            <h3 className="w-[335px] text-center text-cyan-500 text-[35px] font-medium">
-              Website Expense Added
-            </h3>
-          </div>
-          <div className="flex items-center justify-center">
-            <p className="text-blue-800 text-[80px] font-bold ">1</p>
-            <h3 className="w-[335px] text-center text-cyan-500 text-[35px] font-medium">
-              Office Expense Added
-            </h3>
-          </div>
+          <>
+            <div className="flex items-center justify-center">
+              <p className="text-blue-800 text-[80px] font-bold ">
+                {carEarning?.length}
+              </p>
+              <h3 className="w-[335px] text-center text-cyan-500 text-[35px] font-medium">
+                Car Expense Added
+              </h3>
+            </div>
+            <div className="flex items-center justify-center">
+              <p className="text-blue-800 text-[80px] font-bold ">
+                {websiteEarning?.length}
+              </p>
+              <h3 className="w-[335px] text-center text-cyan-500 text-[35px] font-medium">
+                Website Expense Added
+              </h3>
+            </div>
+            <div className="flex items-center justify-center">
+              <p className="text-blue-800 text-[80px] font-bold ">
+                {officeEarning.length}
+              </p>
+              <h3 className="w-[335px] text-center text-cyan-500 text-[35px] font-medium">
+                Office Expense Added
+              </h3>
+            </div>
+          </>
         </div>
       </div>
       <div>
-    <AvailableAssets></AvailableAssets>
+        <AvailableAssets></AvailableAssets>
       </div>
     </>
   );
